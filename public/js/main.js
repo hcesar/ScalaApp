@@ -33,3 +33,11 @@ $("#btnMore").click(function() {
 		scrollTop : $("#divMore").offset().top
 	}, 1000);
 });
+
+
+$("#btnMore2").click(function() {
+	$('html, body').animate({
+		scrollTop : $(".pag3").offset().top
+	}, 1000);
+	return false;
+});

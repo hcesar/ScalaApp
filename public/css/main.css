@@ -267,7 +267,7 @@ h1 {
 
 .pag1 h2 {
     position: absolute;
-    top: 180px;
+    top: 215px;
     right: 15px;
     font-family: 'Montserrat', sans-serif;
     color: #525a6e;
@@ -391,7 +391,7 @@ h1 {
         font-size: 17px;
         font-weight: 700;
         text-transform: uppercase;
-        margin: 80px 100px 0 100px;
+        margin: 53px 100px 0 100px;
     }
 
         .pag3 p + h2 {
