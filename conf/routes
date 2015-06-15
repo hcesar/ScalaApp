@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /content/*file               	controllers.Assets.at(path="/public", file)
+
+GET    /		           				@controllers.Application.index
+GET    /survey/:userId 		           	@controllers.Application.survey(userId: String)
+GET    /report/surveys					@controllers.Report.getSurveys
+
+# API
+POST    /api/subscriptions		            @controllers.Subscription.submitUser
+GET     /api/subscriptions/:id         		@controllers.Subscription.getUser(id : String)
+GET     /api/subscriptions/:id/survey       @controllers.Subscription.getSurvey(id : String)
+POST    /api/subscriptions/:id/survey       @controllers.Subscription.submitSurvey(id : String)

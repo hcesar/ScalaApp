@@ -1,0 +1,166 @@
+@(user: models.User)
+	
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>TripHunter</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/content/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="/content/vendor/fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/content/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <h1>TripHunter</h1>
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <h3>Olá <span>@user.name</span>,</h3>
+                <h4>Gostaríamos de saber que tipo de viajante é você. </h4>
+                <form>
+                	<input type="hidden" id="userId" value="@user.id" />
+                    <fieldset class="form-horizontal">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Seu nome</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" value="@user.name" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-sm-2 control-label">E-mail</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" value="@user.email" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="col-sm-2 control-label">Cidade</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" id="city" />
+                            </div>
+                            <label for="state" class="col-sm-1 control-label">Estado</label>
+                            <div class="col-sm-2">
+                                <select class="form-control" id="state">
+                                    <option value="">UF</option>
+                                    	<option value="AC">Acre</option>
+										<option value="AL">Alagoas</option>
+										<option value="AP">Amapá</option>
+										<option value="AM">Amazonas</option>
+										<option value="BA">Bahia</option>
+										<option value="CE">Ceará</option>
+										<option value="DF">Distrito Federal</option>
+										<option value="ES">Espirito Santo</option>
+										<option value="GO">Goiás</option>
+										<option value="MA">Maranhão</option>
+										<option value="MS">Mato Grosso do Sul</option>
+										<option value="MT">Mato Grosso</option>
+										<option value="MG">Minas Gerais</option>
+										<option value="PA">Pará</option>
+										<option value="PB">Paraíba</option>
+										<option value="PR">Paraná</option>
+										<option value="PE">Pernambuco</option>
+										<option value="PI">Piauí</option>
+										<option value="RJ">Rio de Janeiro</option>
+										<option value="RN">Rio Grande do Norte</option>
+										<option value="RS">Rio Grande do Sul</option>
+										<option value="RO">Rondônia</option>
+										<option value="RR">Roraima</option>
+										<option value="SC">Santa Catarina</option>
+										<option value="SP">São Paulo</option>
+										<option value="SE">Sergipe</option>
+										<option value="TO">Tocantins</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-horizontal">
+                        <div class="form-group">
+                            <input type="radio" name="isCertified" id="consultor" value="true" />
+                            <label for="consultor">Já sou consultor certificado</label>
+                            <input type="radio" name="isCertified" id="naoconsultor" value="false" />
+                            <label for="naoconsultor">Quero ser consultor</label>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-horizontal">
+                        <h4>Você está empregado atualmente?</h4> 
+                        <div class="form-group">
+                            <input type="radio" name="empregado" id="empregadosim" value="1" />
+                            <label for="empregadosim">Sim</label>
+                            <input type="radio" name="empregado" id="empregadonao" />
+                            <label for="empregadonao">Não</label>
+                        </div>
+                        <div class="form-group" id="divOccupation">
+                            <label for="occupation" class="col-sm-3 control-label">Trabalho como</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="occupation" />
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-horizontal">
+                        <h4>
+                            Que tipo de viajante você gostaria de orientar?<br />
+                            pode selecionar mais de uma opção.
+                        </h4>
+                        <div class="form-group" id="divTripKinds">
+                            <input type="checkbox" id="cult" />
+                            <label for="cult">cult</label>
+                            <input type="checkbox" id="romantico" />
+                            <label for="romantico">romântico</label>
+                            <input type="checkbox" id="familia" />
+                            <label for="familia">família</label>
+                            <input type="checkbox" id="radical" />
+                            <label for="radical">radical</label>
+                            <input type="checkbox" id="espiritual" />
+                            <label for="espiritual">espiritual</label>
+                            <input type="checkbox" id="gourmet" />
+                            <label for="gourmet">gourmet</label>
+                            <input type="checkbox" id="relax" />
+                            <label for="relax">relax</label>
+                            <input type="checkbox" id="ecofriendly" />
+                            <label for="ecofriendly">eco friendly</label>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-horizontal">
+                        <h4>você tem Alguma sugestão para o nosso serviço no Triphunter?</h4>
+                        <div class="form-group">
+                            <textarea id="message" class="form-control" rows="3" placeholder="Texto da sugestão lorem ipsum dolor sit amet"></textarea>
+                        </div>
+                    </fieldset>
+                    <div>
+                        <button type="reset" class="btn btn-default btn-lg">Limpar formulário</button>
+                        <button type="button" id="btnSubmit" class="btn btn-success btn-lg pull-right">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+		<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                    <h4 class="modal-title" id="myModalLabel">Pesquisa enviada com sucesso!</h4>
+	                </div>
+	                <div class="modal-body">
+	                    <p>Obrigado por responder a pesquisa.</p>
+	                    <p>Assim que concluído, enviaremos um e-mail com o resultado desta seleção.</p>
+	                    <p>Esperamos trabalhar juntos em breve!</p>
+	                </div>
+	                <div class="modal-footer">
+	                    <div class="text-left">
+	                        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>        
+
+    </div>
+    <script src="/content/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="/content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/content/js/survey.js"></script>
+</body>
+</html>
