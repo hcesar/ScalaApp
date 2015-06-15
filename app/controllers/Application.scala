@@ -20,7 +20,7 @@ class Application @Inject() (subscriptionService: SubscriptionService) extends C
   def index = Action { request =>
     {
       if(request.host.startsWith("104."))
-        Redirect("http://consultores.triphunter.com.br/", 401)
+        Redirect("http://consultores.triphunter.com.br/", 301)
       else
         Ok(views.html.index())
     }
