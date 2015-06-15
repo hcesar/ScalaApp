@@ -30,4 +30,8 @@ class SurveyRepositoryMock extends SurveyRepository{
      items += survey
      return true
    }   
+   
+   def listAll():Seq[Survey] = {
+     return items
+   }
 }
