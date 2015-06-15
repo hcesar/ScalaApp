@@ -19,12 +19,11 @@ class Application @Inject() (subscriptionService: SubscriptionService) extends C
 
   def index = Action { request =>
     {
-
-      Ok(views.html.index())
-      //Ok(views.html.email("http://" + request.host, new models.User(id = "teste", name = "", email = "")))
-      //Ok(request.uri)
+      if(request.host.startsWith("104."))
+        Redirect("http://consultores.triphunter.com.br/", 401)
+      else
+        Ok(views.html.index())
     }
-
   }
 
   def survey(userId: String) = Action {
