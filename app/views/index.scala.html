@@ -8,40 +8,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="/content/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="/content/vendor/fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/content/css/main.css">
 </head>
 <body>
     <div class="pag1">
         <div class="container">
+            <h1 class="ir">TripHunter</h1>
+            <h2 class="text-right">
+                Seja um consultor<br />
+                independente,<br />
+                e tenha uma renda<br />
+                extra ajudando<br />
+                pessoas a realizarem<br />
+                a viagem dos sonhos.
+            </h2>
             <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h1>TripHunter</h1>
+                <div class="col-sm-8">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h2 class="text-right">
-                        Seja um consultor independente,
-                        e tenha uma renda extra ajudando pessoas a realizarem
-                        a viagem dos sonhos.
-                    </h2>
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-6">
-                            <a href="#">acessar o triphunter.com.br</a>
-                        </div>
-                        <div class="col-sm-6 col-md-6 col-lg-6">
-                            <button type="button" class="btn btn-primary btn-lg">Quero saber mais <i class="fa fa-arrow-down"></i></button>
-                        </div>
-                    </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-primary btn-lg" id="btnMore">Quero saber mais <i class="fa fa-arrow-down"></i></button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="pag2">
+    <div class="pag2" id="divMore">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
-                    <h2>Compartilhe suas experiências e realize sonhos.</h2>
+                    <h2>
+                        Compartilhe suas experiências e<br />
+                        <span>realize sonhos.</span>
+                    </h2>
                     <p>O Triphunter vai reunir pedidos de consultoria e cotações de viagens de diversas pessoas em um só lugar. Como consultor, você orientará os viajantes nos destinos que você conhece e receberá 5% das vendas realizadas.</p>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-sm-3 col-md-3 col-lg-3">
                     <i class="fa fa-5x fa-smile-o"></i>
-                    <h4><span>4.</span> Ganhe <span class="text-big">5%</span> das viagens vendidas</h4>
+                    <h4 style="margin-top: -5px; margin-bottom: 25px;"><span>4.</span> Ganhe <span class="text-big">5%</span> das viagens vendidas</h4>
                     <p>Se o viajante escolher o seu roteiro, você ganha uma comissão pela venda. Tudo sem precisar sair de casa ou do seu emprego.</p>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                             <input type="email" class="form-control" id="email" placeholder="e-mail" />
                         </div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-primary btn-lg" id="btnEnviarEmail">solicitar convite</button>
+                            <button type="button" id="btnSubmitEmail" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">solicitar convite</button>
                         </div>
                     </fieldset>
                 </div>
@@ -99,15 +99,31 @@
             <div class="row">
                 <div class="col-sm-10 col-sm-pull-1 col-sm-push-1 col-md-10 col-md-pull-1 col-md-push-1 col-lg-10 col-lg-pull-1 col-lg-push-1">
                     <p>O Triphunter é uma plataforma que reúne pacotes de viagens de diversas operadoras e um canal para pessoas que querem experiências personalizadas e desejam montar roteiros de viagens.</p>
-                    <h2><a href="#">Acesse o Triphunter</a></h2>
+                    <h2><a href="http://www.triphunter.com.br" target="_BLANK">Acesse o Triphunter</a></h2>
                 </div>
             </div>
         </div>
         <footer class="text-center">
-            TRIPHUNTER © Copyright 2015 - Todos os direitos reservados
+            TRIPHUNTER © Copyright 2013 - <span>Todos os direitos reservados</span>
         </footer>
     </div>
     <!-- Modal -->
+    <div class="modal fade" id="waitingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Aviso</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Aguarde...</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-left">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -116,10 +132,10 @@
                     <h4 class="modal-title" id="myModalLabel">Convite solicitado com sucesso!</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Obrigado por participar, <span id="nameSubscription"></span>!</p>
+                    <p>Obrigado por participar, Fulano!</p>
                     <p>Você receberá um e-mail com mais orientações em breve.</p>
                     <p>É importante responder à essas orientações para fazer parte do programa. Boa sorte!</p>
-                    <p>Você será redirecionado ao <a href="#">triphunter.com.br</a></p>
+                    <p>Acesse o TripHunter: <a href="http://www.triphunter.com.br">triphunter.com.br</a></p>
                 </div>
                 <div class="modal-footer">
                     <div class="text-left">
@@ -129,7 +145,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

@@ -1,5 +1,6 @@
 @(user: models.User)
 	
+
 <!doctype html>
 <html class="no-js" lang="">
 <head>
@@ -8,15 +9,15 @@
     <title>TripHunter</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/content/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="/content/vendor/fontawesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/content/css/main.css">
+    <link href="\content/vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="\content/vendor/fontawesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="\content/css/main.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-sm-4 col-md-4 col-lg-4">
-                <h1>TripHunter</h1>
+                <h1 class="ir logo2">TripHunter</h1>
             </div>
             <div class="col-sm-8 col-md-8 col-lg-8">
                 <h3>Olá <span>@user.name</span>,</h3>
@@ -25,7 +26,7 @@
                 	<input type="hidden" id="userId" value="@user.id" />
                     <fieldset class="form-horizontal">
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Seu nome</label>
+                            <label for="nome" class="col-sm-2 control-label">Seu nome</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="name" value="@user.name" disabled />
                             </div>
@@ -37,15 +38,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="city" class="col-sm-2 control-label">Cidade</label>
+                            <label for="cidade" class="col-sm-2 control-label">Cidade</label>
                             <div class="col-sm-7">
                                 <input type="text" class="form-control" id="city" />
                             </div>
-                            <label for="state" class="col-sm-1 control-label">Estado</label>
+                            <label for="estado" class="col-sm-1 control-label">Estado</label>
                             <div class="col-sm-2">
                                 <select class="form-control" id="state">
                                     <option value="">UF</option>
-                                    	<option value="AC">Acre</option>
+										<option value="AC">Acre</option>
 										<option value="AL">Alagoas</option>
 										<option value="AP">Amapá</option>
 										<option value="AM">Amazonas</option>
@@ -71,29 +72,34 @@
 										<option value="SC">Santa Catarina</option>
 										<option value="SP">São Paulo</option>
 										<option value="SE">Sergipe</option>
-										<option value="TO">Tocantins</option>
-                                </select>
+										<option value="TO">Tocantins</option>                                </select>
                             </div>
                         </div>
                     </fieldset>
                     <fieldset class="form-horizontal">
                         <div class="form-group">
-                            <input type="radio" name="isCertified" id="consultor" value="true" />
-                            <label for="consultor">Já sou consultor certificado</label>
-                            <input type="radio" name="isCertified" id="naoconsultor" value="false" />
-                            <label for="naoconsultor">Quero ser consultor</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="radio" name="isCertified" id="rbCertificadoSim" value="true" />
+                                    <label for="rbCertificadoSim">Já sou consultor certificado</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="radio" name="isCertified" id="rbCertificadoNao" value="false" />
+                                    <label for="rbCertificadoNao">Quero ser consultor</label>
+                                </div>
+                            </div>
                         </div>
                     </fieldset>
                     <fieldset class="form-horizontal">
-                        <h4>Você está empregado atualmente?</h4> 
+                        <h4>Você está empregado atualmente?</h4>
                         <div class="form-group">
-                            <input type="radio" name="empregado" id="empregadosim" value="1" />
+                            <input type="radio" name="rbOccupation" id="empregadosim" value="1" />
                             <label for="empregadosim">Sim</label>
-                            <input type="radio" name="empregado" id="empregadonao" />
+                            <input type="radio" name="rbOccupation" id="empregadonao" />
                             <label for="empregadonao">Não</label>
                         </div>
                         <div class="form-group" id="divOccupation">
-                            <label for="occupation" class="col-sm-3 control-label">Trabalho como</label>
+                            <label for="trabalhocomo" class="col-sm-3 control-label">Trabalho como</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="occupation" />
                             </div>
@@ -105,36 +111,71 @@
                             pode selecionar mais de uma opção.
                         </h4>
                         <div class="form-group" id="divTripKinds">
-                            <input type="checkbox" id="cult" />
-                            <label for="cult">cult</label>
-                            <input type="checkbox" id="romantico" />
-                            <label for="romantico">romântico</label>
-                            <input type="checkbox" id="familia" />
-                            <label for="familia">família</label>
-                            <input type="checkbox" id="radical" />
-                            <label for="radical">radical</label>
-                            <input type="checkbox" id="espiritual" />
-                            <label for="espiritual">espiritual</label>
-                            <input type="checkbox" id="gourmet" />
-                            <label for="gourmet">gourmet</label>
-                            <input type="checkbox" id="relax" />
-                            <label for="relax">relax</label>
-                            <input type="checkbox" id="ecofriendly" />
-                            <label for="ecofriendly">eco friendly</label>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="checkbox" id="cult" />
+                                    <label for="cult"><i class="fa fa-2x fa-university"></i>cult</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" id="romantico" />
+                                    <label for="romantico"><i class="fa fa-2x fa-heart"></i>romântico</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" id="familia" />
+                                    <label for="familia"><i class="fa fa-2x fa-home"></i>família</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" id="radical" />
+                                    <label for="radical"><i class="fa fa-2x fa-motorcycle"></i>radical</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" id="espiritual" />
+                                    <label for="espiritual"><i class="fa fa-2x fa-building"></i>espiritual</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" id="gourmet" />
+                                    <label for="gourmet"><i class="fa fa-2x fa-cutlery  "></i>gourmet</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" id="relax" />
+                                    <label for="relax"><i class="fa fa-2x fa-plane"></i>relax</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="checkbox" id="ecofriendly" />
+                                    <label for="ecofriendly"><i class="fa fa-2x fa-leaf"></i>eco friendly</label>
+                                </div>
+                            </div>
                         </div>
                     </fieldset>
                     <fieldset class="form-horizontal">
                         <h4>você tem Alguma sugestão para o nosso serviço no Triphunter?</h4>
-                        <div class="form-group">
-                            <textarea id="message" class="form-control" rows="3" placeholder="Texto da sugestão lorem ipsum dolor sit amet"></textarea>
-                        </div>
+                        <textarea class="form-control" rows="3" placeholder="Texto da sugestão" id="message"></textarea>
                     </fieldset>
+                    <br /><br />
                     <div>
                         <button type="reset" class="btn btn-default btn-lg">Limpar formulário</button>
-                        <button type="button" id="btnSubmit" class="btn btn-success btn-lg pull-right">Enviar</button>
+                        <button type="button" id="btnSubmitSurvey" class="btn btn-success btn-lg pull-right">Enviar</button>
                     </div>
+                    <br /><br />
                 </form>
             </div>
+        </div>
+        
+        <div class="modal fade" id="waitingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <h4 class="modal-title" id="myModalLabel">Aviso</h4>
+	                </div>
+	                <div class="modal-body">
+	                    <p>Aguarde...</p>
+	                </div>
+	                <div class="modal-footer">
+	                    <div class="text-left">
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
         </div>
 
 		<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -156,11 +197,33 @@
 	                </div>
 	            </div>
 	        </div>
-	    </div>        
+	    </div>
+	   
+	     <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	        <div class="modal-dialog">
+	            <div class="modal-content">
+	                <div class="modal-header">
+	                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	                    <h4 class="modal-title" id="myModalLabel">Erro!</h4>
+	                </div>
+	                <div class="modal-body">
+	                    <p id="errorMessage"></p>
+	                </div>
+	                <div class="modal-footer">
+	                    <div class="text-left">
+	                        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div> 
+	                     
 
     </div>
-    <script src="/content/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src="/content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    
+    
+    <script src="\content/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="\content/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/content/js/survey.js"></script>
 </body>
 </html>
