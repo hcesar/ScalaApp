@@ -16,8 +16,10 @@ class Subscription @Inject() (subscriptionService: SubscriptionService, mailer: 
     val user: User = Json.parse(request.body.toString())
     if (subscriptionService.save(user)) {
       val emailHtml = views.html.email(request.host, user).body
-      mailer.send(user.name, user.email, emailHtml)
-      Ok("E-mail registrado com sucesso!")
+      if(mailer.send(user.name, user.email, emailHtml))
+        Ok("E-mail registrado com sucesso!")
+      else
+        BadRequest("Ocorreu um erro inesperado.")
     } else
       BadRequest("Todos os campos são obrigatórios e o e-mail fornecido precisa ser válido.")
   }
