@@ -238,6 +238,7 @@ textarea {
     overflow: hidden;
 }
 
+
 .pag1 {
     background: url(../img/bg-pag1.jpg) no-repeat center top;
     min-height: 772px;
@@ -278,6 +279,22 @@ h1 {
     text-align: right;
 }
 
+@media (max-width: 900px) {
+  .pag1 h2 {
+   font-size: 20px !important;
+  }
+  .pag2 h2 {
+   font-size: 20px !important;
+  }
+  .pag3 h2 {
+   font-size: 20px !important;
+  }
+  .pag3 p {
+   font-size: 12px !important;
+   margin: 13px 30px 0 30px !important;
+  }
+}
+
     .pag1 h2 + .row {
         margin-top: 550px;
         text-transform: uppercase;
@@ -292,7 +309,7 @@ h1 {
 
 .pag2 h2 {
     color: #525a6e;
-    font-size: 44px;
+    font-size: 40px;
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
